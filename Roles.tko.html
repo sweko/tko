@@ -1,0 +1,150 @@
+﻿<html>
+    
+    <head>
+        <title>Role Management</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" type="text/css" href="scripts/jquery-ui-theme/jquery-ui.css" />
+        <script src="scripts/jquery.js"></script>
+        <script src="scripts/jquery-ui.js"></script>
+
+        <script src="node_modules/knockout/build/output/knockout-latest.js"></script>
+        <script src="scripts/ko.dialog.js"></script>
+        
+        <script src="scripts/app/utility.js"></script>
+        <script src="scripts/app/context.js"></script>
+        <script src="scripts/app/permission.js"></script>
+        <script src="scripts/app/role.js"></script>
+        <script src="scripts/app/roleManagement.js"></script>
+        
+        <body>
+            <div class="button-container">
+                <a class="button-span"  data-bind="click: createNewRole" href="#" ><span>Create New Role</span></a>
+            </div>
+            <div class="search-results">
+                <div class="header">
+                    <h2>
+                        <span>List of roles</span>
+                    </h2>
+                </div>
+                <div>
+                    <div>
+                        <div>
+                            <table class="list-table">
+                                <thead>
+                                    <tr class="table-title">
+                                        <th scope="col">Role Name</th>
+                                        <th scope="col">Context Type</th>
+                                        <th scope="col">Users in role</th>
+                                        <th scope="col">Permissions</th>
+                                        <th scope="col">Rank</th>
+                                        <th scope="col"></th>
+                                    </tr>
+                                </thead>
+                                <tbody data-bind="foreach: roles">
+                                    <tr>
+                                        <td data-bind="text: roleName"></td>
+                                        <td data-bind="text: context().type()"></td>
+                                        <td>
+                                            <span data-bind="visible: !hasUsersCheck()">No Users</span>
+                                            <a href="#" data-bind="text: users().length+' Users', click: toggleUsersVisibility, visible: hasUsersCheck"></a>
+                                            <div class="list-container" data-bind="visible: areUsersVisible">
+                                                <ul class="list-unordered" data-bind="foreach: users">
+                                                    <li data-bind="text: $data"></li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span data-bind="visible: !hasPermissionsCheck()">No Permissions</span>
+                                            <a href="#" data-bind="text: permissions().length+' Permissions', click: togglePermissionsVisibility, visible: hasPermissionsCheck"></a>
+                                            <div class="list-container" data-bind="visible: arePermissionsVisible">
+                                                <ul class="list-unordered" data-bind="foreach: permissions">
+                                                    <li data-bind="text: name"></li>
+                                                </ul>
+                                            </div>
+                                        </td>
+                                        <td class="rank">
+                                            <div class="upArrow" data-bind="visible: canUpRank, click: upRank"></div>
+                                            <div class="upArrowDisabled" data-bind="visible: !canUpRank()"></div>
+                                            <div class="downArrow" data-bind="visible: canDownRank, click: downRank"></div>
+                                            <div class="downArrowDisabled" data-bind="visible: !canDownRank()"></div>
+                                        </td>
+                                        <td>
+                                            <a class="button-span" data-bind="click: $root.editCurrentRole" href="#"><span>Edit</span></a>
+                                            <span style="width: 5px; float: left;">&nbsp;&nbsp;</span>
+                                            <a class="button-span" data-bind="click: $root.deleteCheck" href="#"><span>Delete</span></a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div style="width: 100%; text-align: right;">
+                            <span>Total Results:</span>
+                            <span data-bind="text: roles().length"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="role-details" style="display:none" data-bind="dialog: { title: 'Role Details', closeOnEscape: false, width: 650, height: 350 }, dialogVisible: isDialogOpen, with: currentRole">
+                <div class="input-container">
+                    <label>
+                        <span>RoleId</span>
+                    </label>
+                    <input type="text" readonly="readonly" disabled="disabled" data-bind="value: roleId"  />
+                </div>
+                <div class="input-container">
+                    <label>
+                        <span>Name</span>
+                    </label>
+                    <input type="text" maxlength="40" data-bind="value: roleName"/>
+                    <span class="validator" data-bind="visible: !isRoleNameValid()">The name is required</span>
+                    <span class="validator" data-bind="visible: !isRoleNameUnique()">The name of the role must be unique</span>
+                </div>
+                <div class="input-container">
+                    <label>
+                        <span>Description</span>
+                    </label>
+                    <textarea data-bind="value: description"></textarea>
+                </div>
+                <div class="input-container">
+                    <label>
+                        <span>Context Type</span>
+                    </label>
+                    <select data-bind="options: $root.allContexts, optionsText: 'type', value: context"></select>
+                    <br />
+                </div>
+                <div class="input-container">
+                    <label>
+                        <span>Permissions</span>
+                    </label>
+                </div>
+                <br />
+                <div class="input-container">
+                    <div data-bind="foreach: $root.allPermissions">
+                    <fieldset>
+                        <legend data-bind="text: name"></legend>
+                        <div data-bind="foreach: permissions">
+                            <div style="width: 50%; float: left">
+                                <input type="checkbox" style="width: 20px;" data-bind="checked: $parents[1].hasPermission($data), click: $parents[1].togglePermission" />
+                                <span data-bind="text: name"></span>
+                            </div>
+                        </div>
+                    </fieldset>
+                    </div>
+                </div>
+                <div class="input-container">
+                    <a class="button-span" data-bind="click: $root.saveCurrentRole" href="#"><span>Save Role</span></a>
+                </div>
+            </div>
+            <div id="confirm-delete" data-bind="dialog: { title: 'Delete role?', closeOnEscape: false }, dialogVisible: isDeleteDialogOpen, with: roleToDelete">
+                <div>Are you sure you want to delete the role <span data-bind="text: roleName"></span>?</div>
+                <div data-bind="visible: hasUsersCheck">The role has <span data-bind="text: users().length"></span> active users attached.</div>
+                <div>&nbsp;</div>
+                <div>
+                    <a class="button-span" href="#" data-bind="click: $root.deleteRole"><span>Delete</span></a>
+                    <span style="width: 5px; float: left;">&nbsp;&nbsp;</span>
+                    <a class="button-span" href="#" data-bind="click: $root.cancelDelete"><span>Cancel</span></a>
+                </div>
+            </div>
+        </body>
+
+</html>

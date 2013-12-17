@@ -1,0 +1,63 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'D:\\Program Files (x86)\\nodejs\\0.10.21\\node.exe',
+1 verbose cli   'D:\\Program Files (x86)\\SiteExtensions\\Monaco\\1.0.0-20131104\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   'knockout.TypeScript.DefinitelyTyped' ]
+2 info using npm@1.2.32
+3 info using node@v0.10.21
+4 verbose read json C:\DWASFiles\Sites\monaco-swekster\VirtualDirectory0\site\wwwroot\package.json
+5 verbose read json C:\DWASFiles\Sites\monaco-swekster\VirtualDirectory0\site\wwwroot\node_modules\knockout\package.json
+6 verbose read json C:\DWASFiles\Sites\monaco-swekster\VirtualDirectory0\site\wwwroot\node_modules\typescript\package.json
+7 verbose read json C:\DWASFiles\Sites\monaco-swekster\VirtualDirectory0\site\wwwroot\package.json
+8 verbose cache add [ 'knockout.TypeScript.DefinitelyTyped', null ]
+9 verbose cache add name=undefined spec="knockout.TypeScript.DefinitelyTyped" args=["knockout.TypeScript.DefinitelyTyped",null]
+10 verbose parsed url { protocol: null,
+10 verbose parsed url   slashes: null,
+10 verbose parsed url   auth: null,
+10 verbose parsed url   host: null,
+10 verbose parsed url   port: null,
+10 verbose parsed url   hostname: null,
+10 verbose parsed url   hash: null,
+10 verbose parsed url   search: null,
+10 verbose parsed url   query: null,
+10 verbose parsed url   pathname: 'knockout.TypeScript.DefinitelyTyped',
+10 verbose parsed url   path: 'knockout.TypeScript.DefinitelyTyped',
+10 verbose parsed url   href: 'knockout.TypeScript.DefinitelyTyped' }
+11 silly lockFile ce07edbe-ckout-TypeScript-DefinitelyTyped knockout.TypeScript.DefinitelyTyped
+12 verbose lock knockout.TypeScript.DefinitelyTyped C:\DWASFiles\Sites\monaco-swekster\Temp\_monacosandbox\temp\ce07edbe-ckout-TypeScript-DefinitelyTyped.lock
+13 silly lockFile ce07edbe-ckout-TypeScript-DefinitelyTyped knockout.TypeScript.DefinitelyTyped
+14 silly lockFile ce07edbe-ckout-TypeScript-DefinitelyTyped knockout.TypeScript.DefinitelyTyped
+15 verbose addNamed [ 'knockout.TypeScript.DefinitelyTyped', '' ]
+16 verbose addNamed [ null, '' ]
+17 silly lockFile a2ea9566-ckout-TypeScript-DefinitelyTyped knockout.TypeScript.DefinitelyTyped@
+18 verbose lock knockout.TypeScript.DefinitelyTyped@ C:\DWASFiles\Sites\monaco-swekster\Temp\_monacosandbox\temp\a2ea9566-ckout-TypeScript-DefinitelyTyped.lock
+19 silly addNameRange { name: 'knockout.TypeScript.DefinitelyTyped',
+19 silly addNameRange   range: '',
+19 silly addNameRange   hasData: false }
+20 verbose url raw knockout.TypeScript.DefinitelyTyped
+21 verbose url resolving [ 'https://registry.npmjs.org/',
+21 verbose url resolving   './knockout.TypeScript.DefinitelyTyped' ]
+22 verbose url resolved https://registry.npmjs.org/knockout.TypeScript.DefinitelyTyped
+23 info trying registry request attempt 1 at 17:54:17
+24 http GET https://registry.npmjs.org/knockout.TypeScript.DefinitelyTyped
+25 http 404 https://registry.npmjs.org/knockout.TypeScript.DefinitelyTyped
+26 silly registry.get cb [ 404,
+26 silly registry.get   { server: 'CouchDB/1.5.0 (Erlang OTP/R15B03)',
+26 silly registry.get     date: 'Thu, 12 Dec 2013 17:54:18 GMT',
+26 silly registry.get     'content-type': 'application/json',
+26 silly registry.get     'content-length': '52',
+26 silly registry.get     'cache-control': 'must-revalidate' } ]
+27 silly lockFile a2ea9566-ckout-TypeScript-DefinitelyTyped knockout.TypeScript.DefinitelyTyped@
+28 silly lockFile a2ea9566-ckout-TypeScript-DefinitelyTyped knockout.TypeScript.DefinitelyTyped@
+29 error 404 'knockout.TypeScript.DefinitelyTyped' is not in the npm registry.
+29 error 404 You should bug the author to publish it
+29 error 404
+29 error 404 Note that you can also install from a
+29 error 404 tarball, folder, or http url, or git url.
+30 error System Windows_NT 6.2.9200
+31 error command "D:\\Program Files (x86)\\nodejs\\0.10.21\\node.exe" "D:\\Program Files (x86)\\SiteExtensions\\Monaco\\1.0.0-20131104\\node_modules\\npm\\bin\\npm-cli.js" "install" "knockout.TypeScript.DefinitelyTyped"
+32 error cwd C:\DWASFiles\Sites\monaco-swekster\VirtualDirectory0\site\wwwroot
+33 error node -v v0.10.21
+34 error npm -v 1.2.32
+35 error code E404
+36 verbose exit [ 1, true ]

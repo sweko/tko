@@ -1,0 +1,272 @@
+﻿<html>
+    
+    <head>
+        <title>Role Management</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" type="text/css" href="scripts/jquery-ui-theme/jquery-ui.css" />            
+        <script src="scripts/jquery.js"></script>
+        <script src="scripts/jquery-ui.js"></script>
+        <script>
+            $(function() {
+                 $( "#role-details" ).dialog({autoOpen: false, width: 600});
+                 $( "#confirm-delete" ).dialog({autoOpen: false});
+            });
+            
+            function showDetails()
+            {
+                $( "#role-details" ).dialog( "open" );
+            }
+            
+            function showDelete()
+            {
+                $("#confirm-delete").dialog("open");
+            }
+        </script>
+    </head>
+    
+    <body>
+        <div class="button-container">
+            <a class="button-span" href="#" onclick="showDetails()"><span>Create New Role</span></a>
+        </div>
+        <div class="search-results">
+            <div class="header">
+                <h2>
+                    <span>List of roles</span>
+                </h2>
+            </div>
+            <div>
+                <div>
+                    <div>
+                        <table class="list-table">
+                            <thead>
+                                <tr class="table-title">
+                                    <th style="width: 100px" scope="col">Role Name</th>
+                                    <th style="width: 100px" scope="col">Context Type</th>
+                                    <th style="width: 200px" scope="col">Users in role</th>
+                                    <th style="width: 200px" scope="col">Permissions</th>
+                                    <th style="width: 200px" scope="col">Rank</th>
+                                    <th style="width: 150px" scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Role 1</td>
+                                    <td>None</td>
+                                    <td>
+                                        <span>No Users</span>
+                                    </td>
+                                    <td>
+                                        <span>No Permissions</span>
+                                    </td>
+                                    <td class="rank">
+                                        <div class="upArrowDisabled"></div>
+                                        <div class="downArrow"></div>
+                                    </td>
+                                    <td>
+                                        <a class="button-span" href="#" onclick="showDetails()"><span>Edit</span></a>
+                                        <span style="width: 5px; float: left;">&nbsp;&nbsp;</span>
+                                        <a class="button-span" href="#" onclick="showDelete()"><span>Delete</span></a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Role 2</td>
+                                    <td>Employee</td>
+                                    <td>
+                                        <a href="#">2 Users</a>
+                                    </td>
+                                    <td>
+                                        <a href="#">Show Permissions</a>
+                                    </td>
+                                    <td class="rank">
+                                        <div class="upArrow"></div>
+                                        <div class="downArrow"></div>
+                                    </td>
+                                    <td>
+                                        <a class="button-span" onclick="showDetails()" href="#"><span>Edit</span></a>
+                                        <span style="width: 5px; float: left;">&nbsp;&nbsp;</span>
+                                        <a class="button-span" onclick="showDelete()" href="#"><span>Delete</span></a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Role 3</td>
+                                    <td>None</td>
+                                    <td>
+                                        <a href="#">5 Users</a>
+                                        <div class="list-container">
+                                            <ul class="list-unordered">
+                                                <li>User Full Name 1</li>
+                                                <li>User Full Name 2</li>
+                                                <li>User Full Name 3</li>
+                                                <li>User Full Name 4</li>
+                                                <li>User Full Name 5</li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <a href="#">Hide Permissions</a>
+                                        <div class="list-container">
+                                            <ul class="list-unordered">
+                                                <li>Permission Name 1</li>
+                                                <li>Permission Name 2</li>
+                                                <li>Permission Name 3</li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                    <td class="rank">
+                                        <div class="upArrow"></div>
+                                        <div class="downArrow"></div>
+                                    </td>
+                                    <td>
+                                        <a class="button-span" onclick="showDetails()" href="#"><span>Edit</span></a>
+                                        <span style="width: 5px; float: left;">&nbsp;&nbsp;</span>
+                                        <a class="button-span" onclick="showDelete()" href="#"><span>Delete</span></a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Role 1</td>
+                                    <td>None</td>
+                                    <td>
+                                        <span>No Users</span>
+                                    </td>
+                                    <td>
+                                        <span>No Permissions</span>
+                                    </td>
+                                    <td class="rank">
+                                        <div class="upArrow"></div>
+                                        <div class="downArrow"></div>
+                                    </td>
+                                    <td>
+                                        <a class="button-span" href="#" onclick="showDetails()"><span>Edit</span></a>
+                                        <span style="width: 5px; float: left;">&nbsp;&nbsp;</span>
+                                        <a class="button-span" onclick="showDelete()" href="#"><span>Delete</span></a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Role 1</td>
+                                    <td>None</td>
+                                    <td>
+                                        <span>No Users</span>
+                                    </td>
+                                    <td>
+                                        <span>No Permissions</span>
+                                    </td>
+                                    <td class="rank">
+                                        <div class="upArrow"></div>
+                                        <div class="downArrowDisabled"></div>
+                                    </td>
+                                    <td>
+                                        <a class="button-span" href="#" onclick="showDetails()"><span>Edit</span></a>
+                                        <span style="width: 5px; float: left;">&nbsp;&nbsp;</span>
+                                        <a class="button-span" onclick="showDelete()" href="#"><span>Delete</span></a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div style="width: 100%; text-align: right;">
+                        <span>Total Results: 5</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="role-details" style="display:none" title="Role Details">
+            <div class="input-container">
+                <label>
+                    <span>RoleId</span>
+                </label>
+                <input type="text" maxlength="40" readonly="readonly" disabled="disabled" value="12345" />
+            </div>
+            <div class="input-container">
+                <label>
+                    <span>Name</span>
+                </label>
+                <input type="text" maxlength="40" value="Role XYZ" />
+                <span class="validator">The name is required</span>
+                <span class="validator">The name of the role must be unique</span>
+            </div>
+            <div class="input-container">
+                <label>
+                    <span>Description</span>
+                </label>
+                <textarea>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</textarea>
+            </div>
+            <div class="input-container">
+                <label>
+                    <span>Context Type</span>
+                </label>
+                <select>
+                    <option>None</option>
+                    <option>Employee</option>
+                    <option>Office</option>
+                    <option>Branch</option>
+                    <option>Division</option>
+                </select>
+                <br />
+            </div>
+            <div class="input-container">
+                <label>
+                    <span>Permissions</span>
+                </label>
+            </div>
+            <div class="input-container">
+                <fieldset>
+                    <legend>Permission Group 1</legend>
+                    <div>
+                        <div style="width: 50%; float: left">
+                            <input type="checkbox" style="width: 20px;" />
+                            <span>Permission Name 1</span>
+                        </div>
+                        <div style="width: 50%; float: left">
+                            <input type="checkbox" style="width: 20px;" />
+                            <span>Permission Name 2</span>
+                        </div>
+                        <div style="width: 50%; float: left">
+                            <input type="checkbox" style="width: 20px;" />
+                            <span>Permission Name 3</span>
+                        </div>
+                        <div style="width: 50%; float: left">
+                            <input type="checkbox" style="width: 20px;" />
+                            <span>Permission Name 4</span>
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Permission Group 2</legend>
+                    <div>
+                        <div style="width: 50%; float: left">
+                            <input type="checkbox" style="width: 20px;" />
+                            <span>Permission Name 21</span>
+                        </div>
+                        <div style="width: 50%; float: left">
+                            <input type="checkbox" style="width: 20px;" />
+                            <span>Permission Name 22</span>
+                        </div>
+                        <div style="width: 50%; float: left">
+                            <input type="checkbox" style="width: 20px;" />
+                            <span>Permission Name 23</span>
+                        </div>
+                        <div style="width: 50%; float: left">
+                            <input type="checkbox" style="width: 20px;" />
+                            <span>Permission Name 24</span>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="input-container">
+                <a class="button-span" href="#"><span>Save Role</span></a>
+            </div>
+        </div>
+        <div id="confirm-delete" style="display:none" title="Delete role?">
+            <div>Are you sure you want to delete the role
+                <span>Role Name 1</span>?</div>
+            <div>The role has 999 active users attached.</div>
+            <div>&nbsp;</div>
+            <div>
+                <a class="button-span" href="#" ><span>Delete</span></a>
+                <span style="width: 5px; float: left;">&nbsp;&nbsp;</span>
+                <a class="button-span" href="#"><span>Cancel</span></a>
+            </div>
+        </div>
+    </body>
+
+</html>
